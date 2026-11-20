@@ -1,0 +1,63 @@
+{
+  "metadados": {
+    "gerado_em": "2026-11-15T21:18:49Z",
+    "versao_helper": "1.0.0",
+    "python": "3.11.9",
+    "script": "gerar_exemplos_llm.py",
+    "modelo_configurado": "openai/gpt-4o-mini",
+    "base_url": "https://openrouter.ai/api/v1",
+    "temperature": 0.2,
+    "max_tokens": 500,
+    "tokens_prompt_total": 2808,
+    "tokens_resposta_total": 141,
+    "respostas_llm": 1,
+    "respostas_fallback": 0
+  },
+  "resultados": [
+    {
+      "caso": {
+        "id": "01_como_registrar",
+        "objetivo": "Explicar como registrar uma denúncia",
+        "mensagem": "Como faço para registrar um buraco na calçada?",
+        "modo": "geral"
+      },
+      "resposta": {
+        "resposta": "Para registrar um buraco na calçada, siga estes passos:\n\n1. Acesse a tela \"Registrar\" em #/registrar.\n2. Preencha os campos obrigatórios:\n - Logradouro (nome da rua)\n - Bairro\n - Tipo de obstáculo: escolha \"Buraco na calçada\".\n - Descrição: explique o problema.\n - Impacto: selecione a opção que melhor descreve a situação.\n3. Se quiser, adicione uma foto do buraco.\n4. Aceite os termos de uso e clique em \"Enviar\".\n\nApós enviar, você receberá um número de protocolo para acompanhar a denúncia. Se precisar de mais ajuda, estou aqui!",
+        "fonte": "llm",
+        "modelo": "openai/gpt-4o-mini",
+        "avisos": [
+          "Resposta gerada por IA. Pode conter erros: confira as informações na própria plataforma."
+        ],
+        "denuncia_referenciada": null
+      },
+      "diagnostico_chamada": {
+        "modelo": "openai/gpt-4o-mini",
+        "uso": {
+          "prompt_tokens": 2808,
+          "completion_tokens": 141,
+          "total_tokens": 2949,
+          "cost": 0.0005058,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0005058,
+            "upstream_inference_prompt_cost": 0.0004212,
+            "upstream_inference_completions_cost": 8.46e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        },
+        "duracao_s": 2.849,
+        "finish_reason": "stop"
+      }
+    }
+  ]
+}

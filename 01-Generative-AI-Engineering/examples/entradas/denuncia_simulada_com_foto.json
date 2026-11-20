@@ -1,0 +1,45 @@
+{
+  "_comentario": "DADO SIMULADO para testes do AcessaCidade Helper. Cidade fictícia; não representa denúncia real. Formato: objeto Denuncia público (seção 4.1 do contrato).",
+  "id": 12,
+  "protocolo": "AC-2026-000012",
+  "criado_em": "2026-11-14T13:22:05Z",
+  "atualizado_em": "2026-11-14T13:22:06Z",
+  "logradouro": "Rua Exemplo",
+  "numero": "120",
+  "bairro": "Centro",
+  "cidade": "Cidade Exemplo",
+  "ponto_referencia": "Em frente ao ponto de ônibus",
+  "tipo_obstaculo": "BURACO_CALCADA",
+  "tipo_obstaculo_rotulo": "Buraco na calçada",
+  "descricao": "Buraco de aproximadamente 40 cm na calçada, em frente ao ponto de ônibus. Cadeirantes precisam descer para a rua para desviar. (texto simulado)",
+  "impacto": "IMPEDE_PASSAGEM",
+  "impacto_rotulo": "Impede a passagem",
+  "latitude": null,
+  "longitude": null,
+  "status": "AGUARDANDO_REVISAO",
+  "status_rotulo": "Aguardando revisão",
+  "origem": "SIMULADO",
+  "simulado": true,
+  "possui_imagem": true,
+  "visao": {
+    "classificacao": "POSSIBLE_POTHOLE",
+    "rotulo": "Possível buraco identificado",
+    "pontuacao": 0.72,
+    "explicacao": [
+      "Região escura com área de 8,4% da imagem (texto simulado para teste)",
+      "Contorno fechado com bordas bem definidas (texto simulado para teste)"
+    ],
+    "metricas": {"brilho_medio": 112.4},
+    "deteccoes": [{"x": 120, "y": 80, "largura": 200, "altura": 140, "area_px": 21000}],
+    "imagens": {
+      "original": "/api/denuncias/12/imagens/original"
+    },
+    "versao_algoritmo": "1.0.0",
+    "aviso": "Triagem automática inicial. Não substitui avaliação técnica; requer revisão humana."
+  },
+  "revisao_humana": null,
+  "historico": [
+    {"status": "RECEBIDA", "status_rotulo": "Recebida", "alterado_em": "2026-11-14T13:22:05Z", "observacao": "Denúncia registrada"},
+    {"status": "AGUARDANDO_REVISAO", "status_rotulo": "Aguardando revisão", "alterado_em": "2026-11-14T13:22:06Z", "observacao": "Triagem automática da fotografia concluída; aguardando revisão humana"}
+  ]
+}

@@ -1,0 +1,88 @@
+# =====================================================================
+# AcessaCidade — o que NÃO entra no contexto de build do Docker
+# (contexto = raiz do repositório; Dockerfile em 06-Secure-DevOps-Cloud/docker)
+# Objetivo: imagem enxuta e nenhum segredo/estado local dentro da imagem.
+# =====================================================================
+
+# Controle de versão e CI
+.git
+.gitignore
+.github
+
+# Segredos e configuração local (NUNCA na imagem)
+.env
+.env.*
+!.env.example
+**/*.pem
+**/*.key
+**/*.pfx
+
+# Ambientes Python e caches
+.venv
+venv
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/.ipynb_checkpoints
+**/*.egg-info
+
+# Testes (não são necessários em produção)
+**/tests
+**/test_*.py
+
+# Dados gerados em execução e bancos locais
+data/runtime
+data/exports
+data/processed
+**/*.duckdb
+**/*.duckdb.wal
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
+# Terraform: state, variáveis e cache de providers
+**/.terraform
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfvars
+**/*.tfplan
+**/tfplan
+
+# Pastas de disciplinas que não fazem parte do runtime da aplicação
+02-Big-Data-Architecture
+03-Business-Intelligence-Startup
+05-Robotic-Process-Automation
+06-Secure-DevOps-Cloud
+07-Project-Based-Maker-Lab
+01-Generative-AI-Engineering/docs
+01-Generative-AI-Engineering/examples
+04-Applied-Computer-Vision/docs
+04-Applied-Computer-Vision/results
+04-Applied-Computer-Vision/samples
+infra
+tools
+evidencias
+docs
+scripts
+
+# Documentos e arquivos pesados
+**/*.pdf
+**/*.ipynb
+**/*.pptx
+**/*.docx
+**/*.xlsx
+**/*.mp4
+**/*.mov
+**/*.zip
+**/*.step
+**/*.stp
+**/*.stl
+**/*.3mf
+**/*.dxf
+
+# Sistema operacional / editores
+**/.DS_Store
+**/Thumbs.db
+**/desktop.ini
+.vscode
+.idea

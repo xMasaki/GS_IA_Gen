@@ -1,0 +1,82 @@
+# ---------------------------------------------------------------
+# AcessaCidade — arquivos que NÃO devem ir para o repositório
+# ---------------------------------------------------------------
+
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Dados gerados em tempo de execução (banco SQLite, uploads de fotos, warehouse DuckDB)
+data/runtime/
+data/exports/*
+!data/exports/.gitkeep
+*.duckdb
+*.duckdb.wal
+*.db
+*.sqlite
+*.sqlite3
+
+# Terraform: state e variáveis sensíveis NUNCA vão para o Git
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+crash.*.log
+.terraform.lock.hcl.bak
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+tfplan
+*.tfplan
+
+# Airflow local
+02-Big-Data-Architecture/airflow/logs/
+02-Big-Data-Architecture/airflow/airflow-home/
+airflow.db
+airflow.cfg
+standalone_admin_password.txt
+
+# UiPath (artefatos locais do Studio)
+**/.local/
+**/.objects/
+**/.project/
+**/.screenshots/
+**/.tmh/
+
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Material de referência da disciplina (mantido localmente; decida se deseja versionar)
+Desafio-FIAP-GS-CitizenTech_*.pdf
+/Aula_06_ELT_Raw_Bronze.ipynb
+
+# Arquivos temporários de build de documentos
+tools/_build/
+
+# Cache do Windows criado por processos lançados sem a variável SystemDrive (ex.: navegador headless)
+%SystemDrive%/
+
+# Backups gerados por tools/preencher_marcadores.py (contêm os originais antes do preenchimento)
+.preencher_backup/

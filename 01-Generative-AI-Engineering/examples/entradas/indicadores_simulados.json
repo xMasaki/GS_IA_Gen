@@ -1,0 +1,17 @@
+{
+  "_comentario": "INDICADORES SIMULADOS (números de teste, não são medições reais). Formato de GET /api/indicadores (seção 4.6 do contrato).",
+  "total": 37,
+  "possiveis_buracos": 9,
+  "inconclusivas": 6,
+  "nao_identificadas": 10,
+  "sem_imagem": 12,
+  "por_status": [
+    {"chave": "RECEBIDA", "rotulo": "Recebida", "total": 10},
+    {"chave": "EM_ANALISE", "rotulo": "Em análise", "total": 8},
+    {"chave": "AGUARDANDO_REVISAO", "rotulo": "Aguardando revisão", "total": 19}
+  ],
+  "por_categoria": [{"chave": "BURACO_CALCADA", "rotulo": "Buraco na calçada", "total": 11}],
+  "recentes": [],
+  "inclui_simulados": true,
+  "gerado_em": "2026-11-14T13:30:00Z"
+}

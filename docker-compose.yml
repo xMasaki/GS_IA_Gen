@@ -1,0 +1,52 @@
+# =====================================================================
+# AcessaCidade — stack local com Docker Compose (v2)
+#
+# Sobe a aplicação em http://localhost:8000:
+#   docker compose up -d --build
+#
+# Parar:  docker compose down
+# (adicione -v para apagar também o volume com o banco SQLite e as fotos)
+# =====================================================================
+name: acessacidade
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: 06-Secure-DevOps-Cloud/docker/Dockerfile
+    image: acessacidade:local
+    # .env é opcional (Compose >= 2.24). Sem ele a aplicação sobe com os padrões
+    # seguros: tokens vazios = rotas protegidas desativadas; assistente em modo
+    # alternativo (sem OPENROUTER_API_KEY).
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Valores fixos do container (sobrescrevem o .env, que usa caminhos locais)
+      DATA_DIR: /app/data/runtime
+      FRONTEND_DIR: /app/app/frontend
+      APP_PORT: "8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - app-runtime:/app/data/runtime
+    # Endurecimento do container
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 256
+    mem_limit: 1536m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=4)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  app-runtime:

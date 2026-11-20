@@ -1,0 +1,240 @@
+{
+  "metadados": {
+    "gerado_em": "2026-11-15T01:50:37Z",
+    "versao_helper": "1.0.0",
+    "python": "3.11.9",
+    "script": "gerar_exemplos_erros.py",
+    "rede": "nenhuma (httpx.MockTransport)"
+  },
+  "resultados": [
+    {
+      "id": "E01_sem_chave",
+      "descricao": "OPENROUTER_API_KEY vazia: o helper nem tenta chamar a API.",
+      "simulacao": "nenhuma (configuração sem chave)",
+      "llm_habilitado": false,
+      "mensagem": "O que significa aguardando revisão?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": null,
+      "resposta_do_helper": {
+        "resposta": "\"Aguardando revisão\" quer dizer: A triagem automática da foto terminou e uma pessoa precisa revisar o resultado.\nOs outros status são: Recebida, Em análise, Encaminhada, Resolvida.\nPara ver o status de uma denúncia, informe o protocolo ou use a tela \"Consultar\" (#/consultar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "O AcessaCidade não é um serviço oficial do governo. O status mostra o registro da equipe do AcessaCidade, não uma confirmação de órgão público.",
+          "Assistente em modo básico: as respostas são geradas por regras pré-definidas, sem modelo de IA."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E02_chave_invalida_401",
+      "descricao": "Chave inválida: a API responde HTTP 401.",
+      "simulacao": "MockTransport devolve 401 {\"error\": {\"message\": \"No auth credentials found\", \"code\": 401}}",
+      "llm_habilitado": true,
+      "mensagem": "O que significa aguardando revisão?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": {
+        "excecao": "LLMAuthError",
+        "codigo": "autenticacao",
+        "status_http": 401,
+        "mensagem": "chave de API inválida ou sem permissão",
+        "chave_aparece_na_mensagem": false
+      },
+      "resposta_do_helper": {
+        "resposta": "\"Aguardando revisão\" quer dizer: A triagem automática da foto terminou e uma pessoa precisa revisar o resultado.\nOs outros status são: Recebida, Em análise, Encaminhada, Resolvida.\nPara ver o status de uma denúncia, informe o protocolo ou use a tela \"Consultar\" (#/consultar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "O AcessaCidade não é um serviço oficial do governo. O status mostra o registro da equipe do AcessaCidade, não uma confirmação de órgão público.",
+          "Não foi possível consultar o modelo de IA agora (chave de API inválida ou sem permissão). Assistente em modo básico: resposta gerada por regras pré-definidas."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E03_limite_429",
+      "descricao": "Limite de requisições atingido: HTTP 429.",
+      "simulacao": "MockTransport devolve 429",
+      "llm_habilitado": true,
+      "mensagem": "O que significa aguardando revisão?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": {
+        "excecao": "LLMRateLimitError",
+        "codigo": "limite_requisicoes",
+        "status_http": 429,
+        "mensagem": "limite de requisições ou de créditos atingido",
+        "chave_aparece_na_mensagem": false
+      },
+      "resposta_do_helper": {
+        "resposta": "\"Aguardando revisão\" quer dizer: A triagem automática da foto terminou e uma pessoa precisa revisar o resultado.\nOs outros status são: Recebida, Em análise, Encaminhada, Resolvida.\nPara ver o status de uma denúncia, informe o protocolo ou use a tela \"Consultar\" (#/consultar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "O AcessaCidade não é um serviço oficial do governo. O status mostra o registro da equipe do AcessaCidade, não uma confirmação de órgão público.",
+          "Não foi possível consultar o modelo de IA agora (limite de requisições ou de créditos atingido). Assistente em modo básico: resposta gerada por regras pré-definidas."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E04_erro_servidor_500",
+      "descricao": "Instabilidade do provedor: HTTP 500.",
+      "simulacao": "MockTransport devolve 500",
+      "llm_habilitado": true,
+      "mensagem": "O que significa aguardando revisão?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": {
+        "excecao": "LLMServerError",
+        "codigo": "erro_servidor",
+        "status_http": 500,
+        "mensagem": "o serviço de IA está com instabilidade",
+        "chave_aparece_na_mensagem": false
+      },
+      "resposta_do_helper": {
+        "resposta": "\"Aguardando revisão\" quer dizer: A triagem automática da foto terminou e uma pessoa precisa revisar o resultado.\nOs outros status são: Recebida, Em análise, Encaminhada, Resolvida.\nPara ver o status de uma denúncia, informe o protocolo ou use a tela \"Consultar\" (#/consultar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "O AcessaCidade não é um serviço oficial do governo. O status mostra o registro da equipe do AcessaCidade, não uma confirmação de órgão público.",
+          "Não foi possível consultar o modelo de IA agora (o serviço de IA está com instabilidade). Assistente em modo básico: resposta gerada por regras pré-definidas."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E05_timeout",
+      "descricao": "O provedor não responde dentro de ASSISTANT_TIMEOUT_SECONDS.",
+      "simulacao": "MockTransport levanta httpx.ReadTimeout",
+      "llm_habilitado": true,
+      "mensagem": "O que significa aguardando revisão?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": {
+        "excecao": "LLMTimeoutError",
+        "codigo": "tempo_esgotado",
+        "status_http": null,
+        "mensagem": "o serviço de IA demorou demais para responder",
+        "chave_aparece_na_mensagem": false
+      },
+      "resposta_do_helper": {
+        "resposta": "\"Aguardando revisão\" quer dizer: A triagem automática da foto terminou e uma pessoa precisa revisar o resultado.\nOs outros status são: Recebida, Em análise, Encaminhada, Resolvida.\nPara ver o status de uma denúncia, informe o protocolo ou use a tela \"Consultar\" (#/consultar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "O AcessaCidade não é um serviço oficial do governo. O status mostra o registro da equipe do AcessaCidade, não uma confirmação de órgão público.",
+          "Não foi possível consultar o modelo de IA agora (o serviço de IA demorou demais para responder). Assistente em modo básico: resposta gerada por regras pré-definidas."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E06_resposta_vazia",
+      "descricao": "O provedor devolve 200 com conteúdo vazio.",
+      "simulacao": "MockTransport devolve 200 com message.content = \"\"",
+      "llm_habilitado": true,
+      "mensagem": "O que significa aguardando revisão?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": {
+        "excecao": "LLMEmptyResponseError",
+        "codigo": "resposta_vazia",
+        "status_http": 200,
+        "mensagem": "o serviço de IA devolveu uma resposta vazia",
+        "chave_aparece_na_mensagem": false
+      },
+      "resposta_do_helper": {
+        "resposta": "\"Aguardando revisão\" quer dizer: A triagem automática da foto terminou e uma pessoa precisa revisar o resultado.\nOs outros status são: Recebida, Em análise, Encaminhada, Resolvida.\nPara ver o status de uma denúncia, informe o protocolo ou use a tela \"Consultar\" (#/consultar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "O AcessaCidade não é um serviço oficial do governo. O status mostra o registro da equipe do AcessaCidade, não uma confirmação de órgão público.",
+          "Não foi possível consultar o modelo de IA agora (o serviço de IA devolveu uma resposta vazia). Assistente em modo básico: resposta gerada por regras pré-definidas."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E07_json_invalido",
+      "descricao": "O provedor devolve 200 com corpo que não é JSON.",
+      "simulacao": "MockTransport devolve 200 com texto '<html>erro</html>'",
+      "llm_habilitado": true,
+      "mensagem": "O que significa aguardando revisão?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": {
+        "excecao": "LLMInvalidResponseError",
+        "codigo": "resposta_invalida",
+        "status_http": 200,
+        "mensagem": "o serviço de IA devolveu uma resposta em formato inesperado",
+        "chave_aparece_na_mensagem": false
+      },
+      "resposta_do_helper": {
+        "resposta": "\"Aguardando revisão\" quer dizer: A triagem automática da foto terminou e uma pessoa precisa revisar o resultado.\nOs outros status são: Recebida, Em análise, Encaminhada, Resolvida.\nPara ver o status de uma denúncia, informe o protocolo ou use a tela \"Consultar\" (#/consultar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "O AcessaCidade não é um serviço oficial do governo. O status mostra o registro da equipe do AcessaCidade, não uma confirmação de órgão público.",
+          "Não foi possível consultar o modelo de IA agora (o serviço de IA devolveu uma resposta em formato inesperado). Assistente em modo básico: resposta gerada por regras pré-definidas."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E08_protocolo_inexistente",
+      "descricao": "Protocolo pedido não existe: o backend envia protocolo_solicitado sem denúncia.",
+      "simulacao": "nenhuma (configuração sem chave); denuncia=None",
+      "llm_habilitado": false,
+      "mensagem": "Qual o status do protocolo AC-2026-000999?",
+      "protocolo_solicitado": "AC-2026-000999",
+      "erro_do_cliente_llm": null,
+      "resposta_do_helper": {
+        "resposta": "Não encontrei nenhuma denúncia com o protocolo AC-2026-000999.\nConfira se o número está certo. O formato é AC-AAAA-NNNNNN, com letras maiúsculas e hífens.\nVocê também pode procurar na tela \"Consultar\" (#/consultar). Eu não invento informações sobre denúncias.",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "Assistente em modo básico: as respostas são geradas por regras pré-definidas, sem modelo de IA."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E09_guardrail_protocolo_inventado",
+      "descricao": "O modelo cita um protocolo que não foi fornecido: a resposta é descartada.",
+      "simulacao": "MockTransport devolve 200 com texto que cita AC-2026-000777 (não fornecido)",
+      "llm_habilitado": true,
+      "mensagem": "Como está minha denúncia?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": {
+        "excecao": null,
+        "observacao": "o cliente não levantou exceção (resposta HTTP aceita)"
+      },
+      "resposta_do_helper": {
+        "resposta": "Para consultar uma denúncia, me diga o número do protocolo. O formato é AC-AAAA-NNNNNN: as letras AC, o ano com 4 números e mais 6 números, separados por hífen.\nVocê recebe esse número quando termina o registro. Também dá para procurar pelo bairro ou pelo tipo de problema na tela \"Consultar\" (#/consultar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "A resposta do modelo de IA foi descartada porque não passou na verificação de segurança (citou protocolo não fornecido). Assistente em modo básico: resposta gerada por regras pré-definidas."
+        ],
+        "denuncia_referenciada": null
+      }
+    },
+    {
+      "id": "E10_guardrail_rota_acessivel",
+      "descricao": "O modelo afirma que uma rota é acessível: a resposta é descartada.",
+      "simulacao": "MockTransport devolve 200 com 'Sim, a rota pela Rua Exemplo é acessível.'",
+      "llm_habilitado": true,
+      "mensagem": "A rota pela Rua Exemplo é acessível para cadeirante?",
+      "protocolo_solicitado": null,
+      "erro_do_cliente_llm": {
+        "excecao": null,
+        "observacao": "o cliente não levantou exceção (resposta HTTP aceita)"
+      },
+      "resposta_do_helper": {
+        "resposta": "Não consigo dizer se um caminho é acessível ou seguro. O AcessaCidade mostra só os problemas que as pessoas registraram. Se um lugar não tem denúncia, isso não quer dizer que ele é acessível.\nVocê pode ver as denúncias de um bairro na tela \"Consultar\" (#/consultar). Se encontrar um problema no caminho, registre em \"Registrar\" (#/registrar).",
+        "fonte": "fallback",
+        "modelo": null,
+        "avisos": [
+          "A resposta do modelo de IA foi descartada porque não passou na verificação de segurança (afirmou que um local é acessível ou seguro). Assistente em modo básico: resposta gerada por regras pré-definidas."
+        ],
+        "denuncia_referenciada": null
+      }
+    }
+  ]
+}

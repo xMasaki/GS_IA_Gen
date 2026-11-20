@@ -1,0 +1,12 @@
+# Dependências de RUNTIME da aplicação AcessaCidade (backend FastAPI + visão computacional + helper de IA).
+# Usadas pela imagem Docker. Python 3.11 recomendado.
+# Versões fixadas em 2026-11-15 após varredura Trivy (python-multipart 0.0.20 e starlette 0.46.x
+# tinham CVEs HIGH). Todas publicadas há mais de duas semanas na data da atualização.
+fastapi==0.162.0
+starlette==1.10.0
+uvicorn==0.54.0
+python-multipart==0.0.33
+opencv-python-headless==4.11.0.86
+numpy>=2.0,<2.3
+httpx==0.28.1
+prometheus-client==0.21.1

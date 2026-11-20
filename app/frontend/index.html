@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AcessaCidade: registre, acompanhe e entenda denúncias de problemas de acessibilidade em calçadas e espaços públicos, com triagem automática da fotografia e revisão humana.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#1f4fbf">
+  <title>AcessaCidade</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo" id="link-pular">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho__barra">
+      <a class="marca" href="#/" aria-label="AcessaCidade, página inicial">
+        <img class="marca__logo" src="assets/logo.svg" alt="" width="40" height="40">
+        <span class="marca__nome">AcessaCidade</span>
+      </a>
+      <div class="cabecalho__acoes">
+        <button type="button" class="botao botao--secundario botao--compacto" id="botao-fonte" aria-pressed="false">
+          <span aria-hidden="true">A+</span> <span>Texto maior</span>
+        </button>
+        <button type="button" class="botao botao--secundario botao--compacto menu-alternar" id="botao-menu" aria-expanded="false" aria-controls="menu-principal">
+          <span class="menu-alternar__icone" aria-hidden="true"></span> Menu
+        </button>
+      </div>
+    </div>
+    <nav class="navegacao" aria-label="Navegação principal">
+      <div class="container">
+        <ul class="navegacao__lista" id="menu-principal">
+          <li><a href="#/" data-rota="/">Início</a></li>
+          <li><a href="#/registrar" data-rota="/registrar">Registrar denúncia</a></li>
+          <li><a href="#/consultar" data-rota="/consultar">Consultar</a></li>
+          <li><a href="#/analise" data-rota="/analise">Testar análise de foto</a></li>
+          <li><a href="#/painel" data-rota="/painel">Painel</a></li>
+          <li><a href="#/assistente" data-rota="/assistente">Assistente</a></li>
+          <li><a href="#/sobre" data-rota="/sobre">Sobre e privacidade</a></li>
+          <li><a href="#/revisao" data-rota="/revisao">Área da equipe</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo" class="container conteudo" tabindex="-1">
+    <noscript>
+      <div class="aviso aviso--erro">
+        <p><strong>O AcessaCidade precisa de JavaScript ativado para funcionar.</strong> Ative o JavaScript no seu navegador e recarregue a página.</p>
+      </div>
+    </noscript>
+    <div class="carregando" role="status">
+      <span class="carregando__indicador" aria-hidden="true"></span>
+      <span>Carregando o AcessaCidade...</span>
+    </div>
+  </main>
+
+  <a class="botao-ajuda" id="botao-ajuda" href="#/assistente?contexto=inicio">
+    <span class="botao-ajuda__icone" aria-hidden="true">?</span>
+    <span>Ajuda</span>
+    <span class="sr-only">: perguntar ao assistente AcessaCidade</span>
+  </a>
+
+  <footer class="rodape">
+    <div class="container rodape__conteudo">
+      <p><strong>AcessaCidade</strong> — plataforma cidadã para registrar e acompanhar problemas de acessibilidade em calçadas e espaços públicos.</p>
+      <p>O AcessaCidade <strong>não é um serviço oficial do governo</strong>. O status "Resolvida" é um registro da equipe do projeto, não uma confirmação de órgão público. Dados marcados como <strong>SIMULADO</strong> são fictícios, usados apenas para demonstração.</p>
+      <p>Projeto acadêmico — FIAP Global Solution 2026.2 (CitizenTech). Conectado aos ODS 11 (Cidades e comunidades sustentáveis) e 10 (Redução das desigualdades).</p>
+      <p><a href="#/sobre">Sobre, privacidade e LGPD</a> · <a href="#/revisao">Área da equipe</a></p>
+    </div>
+  </footer>
+
+  <div class="sr-only" id="anuncio" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

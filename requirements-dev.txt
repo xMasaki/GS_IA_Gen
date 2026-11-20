@@ -1,0 +1,4 @@
+# Dependências de desenvolvimento (testes). Na raiz, com o venv ativo:
+#   python -m pip install -r requirements-dev.txt
+-r requirements.txt
+pytest==8.3.5

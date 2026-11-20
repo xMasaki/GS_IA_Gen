@@ -1,0 +1,30 @@
+{
+  "_comentario": "DADO SIMULADO para testes do AcessaCidade Helper. Cidade fictícia; não representa denúncia real.",
+  "id": 7,
+  "protocolo": "AC-2026-000007",
+  "criado_em": "2026-11-10T09:05:00Z",
+  "atualizado_em": "2026-11-11T15:40:00Z",
+  "logradouro": "Avenida Modelo",
+  "numero": "S/N",
+  "bairro": "Jardim Exemplo",
+  "cidade": "Cidade Exemplo",
+  "ponto_referencia": "Esquina com a Rua Fictícia",
+  "tipo_obstaculo": "RAMPA_IRREGULAR",
+  "tipo_obstaculo_rotulo": "Rampa ausente ou irregular",
+  "descricao": "Esquina sem rampa de acesso; a guia é alta e a cadeira de rodas não consegue subir. (texto simulado)",
+  "impacto": "DIFICULTA_PASSAGEM",
+  "impacto_rotulo": "Dificulta a passagem",
+  "latitude": null,
+  "longitude": null,
+  "status": "EM_ANALISE",
+  "status_rotulo": "Em análise",
+  "origem": "SIMULADO",
+  "simulado": true,
+  "possui_imagem": false,
+  "visao": null,
+  "revisao_humana": null,
+  "historico": [
+    {"status": "RECEBIDA", "status_rotulo": "Recebida", "alterado_em": "2026-11-10T09:05:00Z", "observacao": "Denúncia registrada"},
+    {"status": "EM_ANALISE", "status_rotulo": "Em análise", "alterado_em": "2026-11-11T15:40:00Z", "observacao": "Equipe verificando as informações (registro simulado)"}
+  ]
+}

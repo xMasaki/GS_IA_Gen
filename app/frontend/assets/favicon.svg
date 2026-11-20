@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="t">
+  <title id="t">AcessaCidade</title>
+  <rect width="64" height="64" rx="14" fill="#1f4fbf"/>
+  <path d="M32 9c-9.4 0-17 7.4-17 16.6C15 38 32 52 32 52s17-14 17-26.4C49 16.4 41.4 9 32 9z" fill="#ffffff"/>
+  <circle cx="32" cy="25" r="7" fill="#1f4fbf"/>
+  <rect x="10" y="54" width="44" height="4" rx="2" fill="#ffd166"/>
+</svg>
